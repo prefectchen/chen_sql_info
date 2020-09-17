@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.prefect.chen_sql_info.dao.TableinfoDaoMapper">
+
+    <resultMap type="TableInfo" id="MapInfoMap">
+        <result column="id" property="id"/>
+        <result column="table_name" property="table_name"/>
+        <result column="column_name" property="column_name"/>
+        <result column="column_type" property="column_type"/>
+        <result column="column_remark" property="column_remark"/>
+
+    </resultMap>
+
+    <select id="TableInfoShow" resultMap="MapInfoMap">
+
+        select table_name as table_name ,COLUMN_NAME as column_name,DATA_TYPE as column_type,COLUMN_COMMENT as column_remark from information_schema.COLUMNS
+         where table_name = #{tableName} and table_schema =#{dataBaseName};
+
+
+    </select>
+    <select id="allTableList" resultType="java.lang.String">
+select table_name from information_schema.tables where table_schema =#{dataBaseName};
+
+    </select>
+
+</mapper>

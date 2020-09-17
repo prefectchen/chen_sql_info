@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>数据表信息展示</title>
+</head>
+<body>
+<!--/*@thymesVar id="arr" type=""*/-->
+<!--/*@thymesVar id="table_name" type=""*/-->
+<div th:each="items : ${arr}" style="width: 100% ;">
+
+    <table  style="width: 100% ;">
+
+        <div th:each="itemss:${items}"  style="width: 100% ;" >
+             <h1 th:text="${itemss.table_name}"  th:if="${itemssStat.last}"> </h1>
+        </div>
+        <tr>
+            <td   style="width: 24%;float: left;border-left:solid 1px black ;border-top:solid 1px black "> 数据表名称</td>
+            <td   style="width: 24%;float: left;border-left: solid 1px black ;border-top:solid 1px black ">字段名称</td>
+            <td    style="width: 24%;float: left;border-left: solid 1px black ;border-top:solid 1px black ">字段类型</td>
+            <td    style="width: 24%;float: left;border: solid 1px black ;border-top:solid 1px black  ;border-right:solid 1px black ">字段注释</td>
+        </tr>
+        <div th:each="item : ${items}" style="width: 100% ;" >
+
+                <tr>
+                    <td  th:text="${item.table_name}" style="width: 24%;float: left;border-left:solid 1px black ;border-top:solid 1px black "></td>
+                    <td  th:text="${item.column_name}"  style="width: 24%;float: left;border-left: solid 1px black ;border-top:solid 1px black "></td>
+                    <td  th:text="${item.column_type}"  style="width: 24%;float: left;border-left: solid 1px black ;border-top:solid 1px black "></td>
+                    <td  th:text="${item.column_remark}"  style="width: 24%;float: left;border: solid 1px black ;border-top:solid 1px black  ;border-right:solid 1px black "></td>
+                </tr>
+
+        </div>
+    </table>
+
+</div>
+</body>
+<script type="text/javascript">
+
+
+    var h1=document.getElementById(""); // 找到元素
+    h1.parentNode.removeChild(h1);//删除本身
+
+
+</script>
+</html>
