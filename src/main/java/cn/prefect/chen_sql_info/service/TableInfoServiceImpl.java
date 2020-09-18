@@ -27,4 +27,9 @@ public class TableInfoServiceImpl implements TableInfoService {
     public List<String> allTableList(String dataBaseName) {
         return tableinfoDaoMapper.allTableList(dataBaseName);
     }
+
+    @Override
+    public List<String> allTableList2(String dataBaseName) {
+        return tableinfoDaoMapper.allTableList2(dataBaseName);
+    }
 }

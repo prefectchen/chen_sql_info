@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.prefect.chen_sql_info.dao.TableinfoDaoMapper">
 
-    <resultMap type="TableInfo" id="MapInfoMap">
+    <resultMap type="cn.prefect.chen_sql_info.entity.TableInfo" id="MapInfoMap">
         <result column="id" property="id"/>
         <result column="table_name" property="table_name"/>
         <result column="column_name" property="column_name"/>
@@ -20,6 +20,11 @@
     </select>
     <select id="allTableList" resultType="java.lang.String">
 select table_name from information_schema.tables where table_schema =#{dataBaseName};
+
+    </select>
+
+    <select id="allTableList2" resultType="java.lang.String">
+select username from user where id=1
 
     </select>
 

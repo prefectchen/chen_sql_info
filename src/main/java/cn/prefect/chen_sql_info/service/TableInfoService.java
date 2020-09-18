@@ -8,4 +8,6 @@ public interface TableInfoService {
     public List<TableInfo>TableInfoShow(String tableName,String dataBaseName);
 
     List<String> allTableList(String dataBaseName);
+
+    List<String> allTableList2(String dataBaseName);
 }
